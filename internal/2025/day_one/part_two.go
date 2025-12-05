@@ -16,7 +16,7 @@ func DayOnePartTwo() int {
 		return 0
 	}
 
-	for _, input := range inputs {
+	for idx, input := range inputs {
 		move, err := CreateMove(input)
 		if err != nil {
 			fmt.Println("failed to create move! --> ", err)
@@ -27,7 +27,7 @@ func DayOnePartTwo() int {
 		signedClicks := move.ClicksSigned()
 
 		safeDial.Turn(signedClicks)
-		if signedClicks > 0 && safeDial.Position+(signedClicks%100) > 100 {
+		if signedClicks > 0 && oldPosition+(signedClicks%100) > 100 {
 			score += 1
 		}
 
@@ -37,6 +37,14 @@ func DayOnePartTwo() int {
 
 		if safeDial.Position%100 == 0 {
 			score += 1
+		}
+
+		if idx < 10 {
+			fmt.Println("summary:")
+			fmt.Println("  move-distance: ", move.Clicks, " move-signed: ", move.ClicksSigned())
+			fmt.Println("  old position: ", oldPosition)
+			fmt.Println("  new position: ", safeDial.Position)
+			fmt.Println("  score: ", score)
 		}
 	}
 
