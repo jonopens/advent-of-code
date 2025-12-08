@@ -17,35 +17,51 @@ func DayOnePartTwo() int {
 	}
 
 	for idx, input := range inputs {
+		zeroCrossings := 0
 		move, err := CreateMove(input)
 		if err != nil {
 			fmt.Println("failed to create move! --> ", err)
 		}
 
 		oldPosition := safeDial.Position
-		score += move.FullTurns() // do this before changing position
+		fullTurns := move.FullTurns()
+		zeroCrossings += fullTurns
 		signedClicks := move.ClicksSigned()
 
 		safeDial.Turn(signedClicks)
 		if signedClicks > 0 && oldPosition+(signedClicks%100) > 100 {
-			score += 1
+			zeroCrossings += 1
 		}
 
-		if signedClicks < 0 && safeDial.Position > oldPosition {
-			score += 1
+		if signedClicks < 0 && (safeDial.Position > oldPosition && oldPosition != 0) {
+			zeroCrossings += 1
 		}
 
 		if safeDial.Position%100 == 0 {
-			score += 1
+			zeroCrossings += 1
 		}
 
-		if idx < 10 {
-			fmt.Println("summary:")
-			fmt.Println("  move-distance: ", move.Clicks, " move-signed: ", move.ClicksSigned())
-			fmt.Println("  old position: ", oldPosition)
-			fmt.Println("  new position: ", safeDial.Position)
-			fmt.Println("  score: ", score)
-		}
+		// if (idx > 100 && idx < 200) && (move.ClicksSigned() > 100 || move.ClicksSigned() < -100) {
+		// 	fmt.Println("summary @: ", idx)
+		// 	fmt.Println("  move-signed: ", move.ClicksSigned())
+		// 	fmt.Println("  full turns: ", fullTurns)
+		// 	fmt.Println("  old position: ", oldPosition)
+		// 	fmt.Println("  new position: ", safeDial.Position)
+		// 	fmt.Println("  zero crossing: ", zeroCrossings)
+		// 	fmt.Println("  score: ", score)
+		// }
+
+		// if oldPosition == 0 {
+		// 	fmt.Println("summary @: ", idx)
+		// 	fmt.Println("  move-signed: ", move.ClicksSigned())
+		// 	fmt.Println("  full turns: ", fullTurns)
+		// 	fmt.Println("  old position: ", oldPosition)
+		// 	fmt.Println("  new position: ", safeDial.Position)
+		// 	fmt.Println("  zero crossing: ", zeroCrossings)
+		// 	fmt.Println("  score: ", score)
+		// }
+
+		score += zeroCrossings
 	}
 
 	fmt.Println("solution: ", score)
