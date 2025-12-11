@@ -10,13 +10,13 @@ func DayOnePartTwo() int {
 	score := 0
 	safeDial := CreateSafeDial(50, 99)
 
-	inputs, err := utils.GetLinesFromInput(constants.DayOne2025InputPath)
+	inputs, err := utils.GetLinesFromMultilineInput(constants.DayOne2025InputPath)
 	if err != nil {
 		fmt.Println("Failed to parse file: ", err)
 		return 0
 	}
 
-	for idx, input := range inputs {
+	for _, input := range inputs {
 		zeroCrossings := 0
 		move, err := CreateMove(input)
 		if err != nil {
@@ -41,6 +41,7 @@ func DayOnePartTwo() int {
 			zeroCrossings += 1
 		}
 
+		// make first arg idx if debugging
 		// if (idx > 100 && idx < 200) && (move.ClicksSigned() > 100 || move.ClicksSigned() < -100) {
 		// 	fmt.Println("summary @: ", idx)
 		// 	fmt.Println("  move-signed: ", move.ClicksSigned())
@@ -64,6 +65,6 @@ func DayOnePartTwo() int {
 		score += zeroCrossings
 	}
 
-	fmt.Println("solution: ", score)
+	fmt.Println("d1p2 solution: ", score)
 	return score
 }

@@ -1,4 +1,4 @@
 # Advent of Code
 
 ## 2025
-Learn Go
+GOAL: Let's Learn Go!

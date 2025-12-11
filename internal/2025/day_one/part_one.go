@@ -10,7 +10,7 @@ func DayOnePartOne() int {
 	score := 0
 	safeDial := CreateSafeDial(50, 99)
 
-	inputs, err := utils.GetLinesFromInput(constants.DayOne2025InputPath)
+	inputs, err := utils.GetLinesFromMultilineInput(constants.DayOne2025InputPath)
 	if err != nil {
 		fmt.Println("Failed to parse file: ", err)
 		return 0
@@ -28,6 +28,6 @@ func DayOnePartOne() int {
 		}
 	}
 
-	fmt.Println("Solution: ", score)
+	fmt.Println("d1p1 solution: ", score)
 	return score
 }
