@@ -9,4 +9,5 @@ func main() {
 	day_one.DayOnePartOne()
 	// day_one.DayOnePartTwo()
 	day_two.DayTwoPartOne()
+	day_two.DayTwoPartTwo()
 }

@@ -1,4 +1,4 @@
-# Day 1
+# Day 1, Part 1
 
 ## Inputs
 - each input line provides:
@@ -15,7 +15,7 @@
 ## Solution
 1132
 
-# Day 2
+# Day 1, Part 2
 
 ## Inputs
 - probably the same

@@ -5,30 +5,9 @@ import (
 	"advent_of_code/internal/utils"
 	"fmt"
 	"strconv"
-	"strings"
 )
 
-func getRangeSlice(start string, end string) []string {
-	low, err := strconv.Atoi(start)
-	if err != nil {
-		fmt.Println("failed to parse string to int: ", err)
-	}
-
-	high, err := strconv.Atoi(end)
-	if err != nil {
-		fmt.Println("failed to parse string to int: ", err)
-	}
-
-	fullRange := make([]string, high-low+1)
-
-	for c := low; c <= high+1; c++ {
-		fullRange = append(fullRange, strconv.Itoa(c))
-	}
-
-	return fullRange
-}
-
-func isInvalidId(id string) bool {
+func areHalvesEqual(id string) bool {
 	middle := len(id) / 2
 	left, right := id[:middle], id[middle:]
 
@@ -49,10 +28,12 @@ func DayTwoPartOne() int {
 	for _, r := range ranges {
 		// make into a list of elements from the string representation of the range
 		// they should be strings for ease of comparison of left and right
-		ends := strings.Split(r, "-")
-		fullRange := getRangeSlice(ends[0], ends[1])
+		strRange := CreateStrRange(r)
+		strRange.IsInvalidId = areHalvesEqual
+
+		fullRange := strRange.GetElements()
 		for _, el := range fullRange {
-			isInvalid := isInvalidId(el)
+			isInvalid := strRange.IsInvalidId(el)
 			if isInvalid && el != "" {
 				toAdd, newErr := strconv.Atoi(el)
 				if newErr != nil {
