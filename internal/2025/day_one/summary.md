@@ -12,14 +12,10 @@
 - increment a counter any time the ABS of the total modulus 100 is 0
 - return the counter
 
-## Solution
-1132
-
 # Day 1, Part 2
 
-## Inputs
-- probably the same
-- if the inputs are the same, the solution must be greater than for part 1
+## Adjusted Flow
+- the same with the added complexity of incrementing the total any time the counter cross 0 _OR_ lands on 0
 
-## Flow
-- the same with the added complexity of adding to the total any time the counter cross 0 _OR_ lands on 0
+## Self-review: Could It Be Faster?
+- TBD

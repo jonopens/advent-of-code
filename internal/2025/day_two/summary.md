@@ -11,12 +11,12 @@
 
 # Day 2, Part 2
 
-## Inputs
-- the same
-
-## Flow
+## Adjusted Flow
 - instead of checking equal halves, we are checking for equally divisible repition
 -- ints with prime length are automatically valid (not added)
 -- if the total len isn't cleanly divisible by the substr len, it's valid (not added)
 -- single digit repetitions are invalid (added)
 -- must be equally divisible
+
+## Self-review: Could It Be Faster?
+- TBD
