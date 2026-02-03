@@ -39,29 +39,6 @@ func getMaxJoltsForNBatteries(row string, num int) string {
 	return jolt
 }
 
-// func test(row string, batteryCount int) string {
-// 	tens := byte('0') // initialize as zero bytes for comparison
-// 	ones := byte('0')
-// 	tensIndex := 0
-
-// 	for i := 0; i <= len(row)-2; i++ { // iterate only for tens position
-// 		if row[i] > tens {
-// 			tens = row[i]
-// 			tensIndex = i
-// 		}
-// 	}
-
-// 	for j := tensIndex + 1; j <= len(row)-1; j++ {
-// 		if row[j] > ones {
-// 			ones = row[j]
-// 		}
-// 	}
-
-// 	lineMax := string(tens) + string(ones)
-
-// 	return lineMax
-// }
-
 func DayThreePartTwo() int {
 	total := 0
 
