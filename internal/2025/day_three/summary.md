@@ -13,7 +13,10 @@
 # Day 2, Part 2
 
 ## Adjusted Flow
-- TBD
+- Nested for called on each row
+- function adjusts based on target number of batteries, in this case 12
 
 ## Self-review: Could It Be Faster?
-- TBD
+- it's cubic so that feels bad
+- first for loop cannot be eliminated, so could it be quadratic?
+- I cannot conceive of a linear solution

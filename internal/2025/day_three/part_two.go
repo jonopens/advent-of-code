@@ -7,12 +7,12 @@ import (
 	"strconv"
 )
 
-func getMaxJoltsForNBatteries(row string, num int) string {
+func getMaxJoltsForBatteriesTarget(row string, target int) string {
 	jolt := ""
 	lastJoltIndex := 0
 	interiorLoopIndex := 0
 	compareByte := byte('0')
-	for i := num; i >= 1; i-- {
+	for i := target; i >= 1; i-- {
 		// each i has it's own for iteration
 		// the lower limit is the last jolt index
 		// the constraint is the row length minute i
@@ -50,7 +50,7 @@ func DayThreePartTwo() int {
 	for idx, bank := range lines {
 		fmt.Println("line no.: ", idx+1)
 		fmt.Println("full bank: ", bank)
-		lineMax := getMaxJoltsForNBatteries(bank, 12)
+		lineMax := getMaxJoltsForBatteriesTarget(bank, 12)
 
 		fmt.Println("lineMax: ", lineMax)
 		fmt.Println("")
